@@ -5,24 +5,35 @@ import { Switch, Route } from 'react-router-dom';
 import MasterKegList from '../components/Tap';
 import Header from './Header';
 import Error404 from './Error404';
+import Home from './Home';
+import NewTapForm from './NewTapForm'
+//import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 
 
 function App(){
-  var styles = {
-  };
+  
   return (
-    <div style={styles}>
+    <div>
       <style jsx>{`
-        font-family: Helvetica;
+      .html-warp{
+    
+      }
+      font-family: Helvetica;
       `}</style>
-      TapRoom-React
+  <div className="html-warp">
+
+  
       <Header/>
       <Switch>
-        <Route exact path='/' component={MasterKegList} />
+        <Route exact path='/menu' component={MasterKegList} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/newtap' component={NewTapForm} />
+       
         <Route component={Error404} />
       </Switch>
+      </div>
     </div>
   );
 }

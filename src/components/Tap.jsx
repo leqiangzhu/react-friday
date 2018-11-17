@@ -7,7 +7,26 @@ export default function MasterKegList () {
  
 
   return (
-    <table className="table">
+     <div className="taplist">
+       <style jsx>{`
+        table {
+            font-size:30px;
+            postion:center;
+           
+            border-style: solid;
+       
+        }
+        td{
+            border-style: solid;
+
+        }
+        img {
+          top:0;
+         width:100%;
+        }
+      `}</style>
+
+      <table className="table">
     <thead className="thead-dark">
       <tr>
         <th scope="col">name</th>
@@ -34,6 +53,8 @@ export default function MasterKegList () {
       }
     </tbody>
     </table>
+     </div>
+   
 
   );
   
