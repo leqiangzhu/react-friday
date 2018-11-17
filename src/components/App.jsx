@@ -1,11 +1,13 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
+import MasterKegList from '../components/Tap';
+import Header from './Header';
+import Error404 from './Error404';
 
-/*
-  import { Link } from 'react-router-dom';
-  <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
-*/
+
+
 
 function App(){
   var styles = {
@@ -16,9 +18,11 @@ function App(){
         font-family: Helvetica;
       `}</style>
       TapRoom-React
-      {/* <Switch>
-        <Route exact path='/' component={} />
-      </Switch> */}
+      <Header/>
+      <Switch>
+        <Route exact path='/' component={MasterKegList} />
+        <Route component={Error404} />
+      </Switch>
     </div>
   );
 }
