@@ -7,6 +7,8 @@ import Header from './Header';
 import Error404 from './Error404';
 import Home from './Home';
 import NewTapForm from './NewTapForm'
+import Event from './Event'
+import About from './About'
 //import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -30,6 +32,8 @@ function App(){
         <Route exact path='/menu' component={MasterKegList} />
         <Route exact path='/' component={Home} />
         <Route exact path='/newtap' component={NewTapForm} />
+        <Route exact path='/event' component={Event} />
+        <Route exact path='/about' component={About} />
        
         <Route component={Error404} />
       </Switch>
