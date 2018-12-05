@@ -1,69 +1,40 @@
-import React from 'react';
-import getMasterKegList from '../services/TapList';
+import React from "react";
 
 
-export default function Tap (props) {
-  function handleSellTap(){
-    props.onSellTap(props.index)
+function Tap(props) {
+  function handleSellTap() {
+    props.onSellTap(props.index);
   }
-  const masterKegList = getMasterKegList();
  
-
   return (
-     <div className="taplist">
-       <style jsx>{`
-        table {
-            font-size:30px;
-            postion:center;
-           
-            border-style: solid;
-       
+    <tr class="row">
+      <style jsx>{`
+        .row {
+          margin: 40px auto;
         }
-        td{
-            border-style: solid;
+        td {
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+        }
 
-        }
-        img {
-          top:0;
-         width:100%;
+        button {
+          margin: 10px;
         }
       `}</style>
-
-      <table className="table">
-    <thead className="thead-dark">
-      <tr>
-        <th scope="col">name</th>
-        <th scope="col">brewer</th>
-        <th scope="col">description</th>
-        <th scope="col">abv</th>
-        <th scope="col">price</th>
-        <th scope="col">remaining</th>
-        <th scope="col">sell</th>
-      </tr>
-    </thead>
-    <tbody>
-      {masterKegList.map((Keg, index) =>    
-       // <Schedule key={index} schedule = {Keg} />
-       <tr key={index}>
-        <td>{Keg.name}</td>
-        <td>{Keg.brewer}</td>
-        <td>{Keg.description}</td>
-        <td>{Keg.abv}</td>
-        <td>{Keg.price}</td>
-        <td>{Keg.remaining}</td>
-        <td> <button onClick={handleSellTap}>
+      <td>{props.name}</td>
+      <td>{props.brewer}</td>
+      <td>{props.abv}</td>
+      <td>${props.price}</td>
+      <td>{props.remaining}</td>
+      <td>
+        <button className="btn btn-success" onClick={handleSellTap}>
           Sell
-        </button></td>
-      </tr>
-      )
-      }
-    </tbody>
-    </table>
-     </div>
-   
-
+        </button>
+        
+      </td>
+    </tr>
   );
-  
 }
-        
-        
+
+export default Tap;
