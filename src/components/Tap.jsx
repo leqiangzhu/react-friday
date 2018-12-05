@@ -12,15 +12,10 @@ function Tap(props) {
         .row {
           margin: 40px auto;
         }
-        td {
-          font-size: 20px;
-          font-weight: bold;
-          text-align: center;
-        }
+        td{
+          border-style: solid;
 
-        button {
-          margin: 10px;
-        }
+      }
       `}</style>
       <td>{props.name}</td>
       <td>{props.brewer}</td>

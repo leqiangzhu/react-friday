@@ -8,8 +8,19 @@ function TapList(props) {
       <style jsx>{`
         
         table {
-          margin: 40px auto;
-          border-bottom: 1px solid black;
+            font-size:30px;
+            postion:center;
+           
+            border-style: solid;
+       
+        }
+        td{
+            border-style: solid;
+
+        }
+        img {
+          top:0;
+         width:100%;
         }
       `}</style>
       <div class="container">
@@ -37,6 +48,7 @@ function TapList(props) {
                   remaining={keg.remaining}
                   index={index}
               //vote down
+              onSellTap={props.sellPint}
                 
                 />
               ))}

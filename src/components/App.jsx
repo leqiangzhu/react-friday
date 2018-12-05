@@ -64,35 +64,15 @@ class App extends React.Component {
         }
       ]
     };
-    this.handleAddingNewBeerToList = this.handleAddingNewBeerToList.bind(this);
+    this.handleAddNewTapToList = this.handleAddNewTapToList.bind(this);
     this.handleSellTap = this.handleSellTap.bind(this);
   }
 
-  handleAddingNewBeerToList(newTicket) {
+  handleAddNewTapToList(newTAP) {
     let newMasterKegList = this.state.masterKegList.slice();
-    newMasterKegList.push(newTicket);
+    newMasterKegList.push(newTAP);
     this.setState({ masterKegList: newMasterKegList });
   }
-
-  // handleEditingABeer(index) {
-  //   let foundBeer = this.state.masterKegList[index];
-  //   this.setState({
-  //     currentlyEditingBeer: foundBeer,
-  //     currentlyEditingStatus: true,
-  //     currrentlyEditingIndex: index
-  //   });
-  // }
-
-  // handleFinishEditingBeer(editedBeer) {
-  //   let newMasterKegList = this.state.masterKegList.slice();
-  //   newMasterKegList[this.state.currrentlyEditingIndex] = editedBeer;
-  //   this.setState({
-  //     masterKegList: newMasterKegList,
-  //     currentlyEditingStatus: false,
-  //     currentlyEditingBeer: null,
-  //     currrentlyEditingIndex: null
-  //   });
-  // }
 
   handleSellTap(index) {
     let newMasterKegList = this.state.masterKegList.slice();
@@ -106,28 +86,14 @@ class App extends React.Component {
     }
   }
 
-  // handleDeletingBeer(index) {
-  //   var newMasterKegList = this.state.masterKegList.slice();
-  //   newMasterKegList.splice(index, 1);
-  //   this.setState({ masterKegList: newMasterKegList });
-  // }
+
 
   render() {
-    if (this.state.currentlyEditingStatus) {
-      this.editFormView = (
-        <EditBeer
-          // // handleFinishEditingBeer={this.handleFinishEditingBeer}
-          keg={this.state.currentlyEditingBeer}
-        />
-      );
-    } else {
-      this.editFormView = null;
-    }
 
     return (
       <div>
         <style jsx>{`
-          font-family: Helvetica;
+         
         `}</style>
         <Header />
 
@@ -139,21 +105,19 @@ class App extends React.Component {
             path="/menu"
             render={() => (
               <TapList
-                // deleteBeer={this.handleDeletingBeer}
                 sellPint={this.handleSellTap}
                 beerList={this.state.masterKegList}
-                // onEditingBeer={this.handleEditingABeer}
               />
             )}
           />
-
           <Route
             path="/newtap"
             render={() => (
-              <NewTapForm onNewTapCreation={this.handleAddingNewBeerToList} />
+              <NewTapForm onNewTapCreation={this.handleAddNewTapToList} />
             )}
           />
           <Route component={Error404} />
+          
         </Switch>
        
       </div>
