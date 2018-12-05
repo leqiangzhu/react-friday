@@ -1,6 +1,30 @@
 import React from 'react';
 
-function NewTapForm() {
+function NewTapForm(props) {
+    let _name = null;
+    let _brewer = null;
+    let _description = null;
+    let _price = null;
+    let _abv = null;
+    let _remaining = null;
+
+    function handleNewTapFormSubmission(event){
+        event.preventDefault();
+        props.onNewTapCreation({
+            name: _name.value,
+            brewer: _brewer.value,
+            description: _description.value,
+            abv: _abv.value,
+            price: _price.value,
+            remaining: 124
+        });
+        _name.value="";
+        _brewer.value="";
+        _description.value="";
+        _price.value="";
+        _abv.value="";
+        _remaining.value="";
+    }
     return (
         <div>
             <style jsx>{`
@@ -29,40 +53,48 @@ function NewTapForm() {
       `}</style>
            
            
-           
-            <form>
+        {/* create new tap */}
+           <form onSubmit={handleNewTapFormSubmission}>
                 <input
                     type='text'
                     id='name'
-                    placeholder='tap name' />
+                    placeholder='tap name' 
+                    ref = {(input) => (_name = input)} 
+                    />
                 <br></br>
                 <input
                     type='text'
                     id='brewer'
-                    placeholder='tap brewer' />
+                    placeholder='tap brewer' 
+                    ref = {(input) => (_brewer = input)} />
                 <br></br>
                 <input
                     type='text'
                     id='description'
-                    placeholder='tap description' />
+                    placeholder='tap description' 
+                    ref = {(input) => (_description = input)}  />
                 <br></br>
                 <input
                     type='text'
                     id='abv'
-                    placeholder='tap abv' />
+                    placeholder='tap abv' 
+                    ref = {(input) => (_abv = input)} />
                 <br></br>
                 <input
                     type='text'
                     id='price'
-                    placeholder='tap price' />
+                    placeholder='tap price' 
+                    ref = {(input) => (_price = input)} />
                 <br></br>
 
                 <input
                     type='text'
                     id='remaining'
-                    placeholder='tap remaining' />
+                    placeholder='tap remaining' 
+                    ref = {(input) => (_remaining = input)} />
                 <br></br>
-                <button type='submit'>ADD!</button>
+               
+                <button type='submit'>SUBMIT!</button>
             </form>
         </div>
     );
